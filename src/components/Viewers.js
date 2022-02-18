@@ -56,8 +56,8 @@ const Container = styled.div`
 const Wrap = styled.div`
   /* 9/16 RATIO = 56.25% */
   padding-top: 56.25%;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   cursor: pointer;
   border: 3px solid rgba(249, 249, 249, 0.1);
   border-radius: 10px;

@@ -48,11 +48,10 @@ const BgImage = styled.div`
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+  position: absolute;
+  inset: 0;
   height: 100%;
   z-index: -1;
-  position: absolute;
-  left: 0;
-  right: 0;
 `;
 
 const CTA = styled.div`

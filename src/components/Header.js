@@ -16,12 +16,10 @@ const Header = () => {
     if (!userName) {
       signInWithPopup(auth, provider)
         .then((result) => {
-          console.log(result);
           dispatch(
             userActions.setUserLoginDetails({
               name: result.user.displayName,
               email: result.user.email,
-              photo: result.user.photoURL,
             })
           );
         })
@@ -39,6 +37,12 @@ const Header = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        dispatch(
+          userActions.setUserLoginDetails({
+            name: user.displayName,
+            email: user.email,
+          })
+        );
         navigate("/home");
       }
     });
@@ -95,7 +99,6 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 36px;
-  letter-spacing: 16px;
   z-index: 2;
 `;
 
@@ -107,6 +110,7 @@ const Logo = styled.a`
   display: inline-block;
   font-size: 0;
   cursor: pointer;
+
   img {
     display: block;
     width: 100%;
@@ -139,7 +143,7 @@ const NavMenu = styled.div`
       font-size: 13px;
       letter-spacing: 1.42px;
       line-height: 1.08;
-      padding: 2px 0;
+      padding: 0 2px;
       white-space: nowrap;
       position: relative;
 
@@ -170,7 +174,7 @@ const NavMenu = styled.div`
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 950px) {
     display: none;
   }
 `;

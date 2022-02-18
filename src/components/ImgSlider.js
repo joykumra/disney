@@ -47,7 +47,7 @@ const Carousel = styled(Slider)`
   & > button {
     opacity: 0;
     height: 100%;
-    width: 5vw;
+    width: 7vw;
     z-index: 1;
     transition: opacity 0.2s ease 0s;
 
@@ -63,7 +63,7 @@ const Carousel = styled(Slider)`
     }
   }
 
-  li.slick-active button:before {
+  ul li.slick-active button:before {
     color: white;
   }
 
