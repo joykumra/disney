@@ -4,7 +4,7 @@ import { auth, provider } from "../firebase";
 import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../features/user/userSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const Header = () => {
         navigate("/home");
       }
     });
-  }, [userName]);
+  }, [userName, dispatch, navigate]);
 
   return (
     <Nav>
@@ -56,30 +56,30 @@ const Header = () => {
       {userName && (
         <>
           <NavMenu>
-            <a href="/home">
+            <NavLink to="/home">
               <img src="/images/home-icon.svg" alt="HOME"></img>
               <span>HOME</span>
-            </a>
-            <a href="/search">
+            </NavLink>
+            <NavLink to="/search">
               <img src="/images/search-icon.svg" alt="SEARCH"></img>
               <span>SEARCH</span>
-            </a>
-            <a href="/watchlist">
+            </NavLink>
+            <NavLink to="/watchlist">
               <img src="/images/watchlist-icon.svg" alt="WATCHLIST"></img>
               <span>WATCHLIST</span>
-            </a>
-            <a href="/originals">
+            </NavLink>
+            <NavLink to="/originals">
               <img src="/images/original-icon.svg" alt="ORIGINALS"></img>
               <span>ORIGINALS</span>
-            </a>
-            <a href="/movies">
+            </NavLink>
+            <NavLink to="/movies">
               <img src="/images/movie-icon.svg" alt="MOVIES"></img>
               <span>MOVIES</span>
-            </a>
-            <a href="/series">
+            </NavLink>
+            <NavLink to="/series">
               <img src="/images/series-icon.svg" alt="SERIES"></img>
               <span>SERIES</span>
-            </a>
+            </NavLink>
           </NavMenu>
         </>
       )}
